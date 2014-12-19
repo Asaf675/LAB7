@@ -35,6 +35,7 @@ public class CLI implements Runnable{
 		String line;
 		while(!(line=in.readLine()).equals(exitCommand)){
 			String sp[]=line.split(" ");
+			System.out.println(sp[0]);
 			Command c=commands.get(sp[0]);
 			if(c!=null){
 				if(sp.length>1)

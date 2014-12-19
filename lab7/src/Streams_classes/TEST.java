@@ -4,20 +4,22 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 
 public class TEST {
 
 	public static void main(String[] args)  throws Exception{	
 		
-		FileReader f = new FileReader("bart.txt");
-		BufferedReader input=new BufferedReader(f);
+		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+		HashMap<String,Command> commands = new HashMap<String,Command>();
+		commands.put("code", new Encryption());
+	
 		
-		Thread t = new Thread(new CLI(input,,"exit"))		
-		
-		
-
+		Thread t = new Thread(new CLI(in,commands,"exit"));		
+		t.start();
 	/*	
 		FileReader f = new FileReader("bart.txt");
 		BufferedReader input=new BufferedReader(f);
